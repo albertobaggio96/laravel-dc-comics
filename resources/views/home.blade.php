@@ -1,6 +1,7 @@
 @extends("layouts.app")
 
 @section("main")
+
     <section id="serie-cards">
       <div class="container">
         <div class="row pt-5">
