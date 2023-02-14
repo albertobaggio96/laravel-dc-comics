@@ -1,6 +1,7 @@
 @extends("layouts.app")
 
 @section("main")
+  
   <div class="container">
     <section id="card-info" class="row pt-5">
       <img src="{{$comic->thumb}}" alt="{{$comic->title}}" class="w-25">

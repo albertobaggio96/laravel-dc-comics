@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ComicProductController::class, "index"])->name("home");
-
-Route::get('/{comic}', [ComicProductController::class, "show"])->name("info.card");
+Route::get('/', [ComicProductController::class, "index"])->name("admin.index");
+Route::get('/create', [ComicProductController::class, "create"])->name("admin.create");
+Route::get('/{comic}', [ComicProductController::class, "show"])->name("admin.show");
