@@ -4,14 +4,19 @@
   @include("partials.jumbo")
   <section id="serie-cards">
     <div class="container">
-      <div class="row pt-5">
+      <div class="row pt-5 align-items-stretch">
         @foreach ($comics as $comic)
-        <a href="{{ route('admin.show', $comic->id)}}" class="col-2 text-white text-decoration-none">
+        <div class="col-2 text-white pb-5 mb-4 position-relative">
           <img src="{{$comic->thumb}}" alt=" {{$comic->title}}" class="img-fluid">
           <div>
             {{$comic->series}}
           </div>
-        </a>
+          <div class="position-absolute bottom-0">
+            <a href="{{ route('admin.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
+            <a href="" class="btn btn-warning btn-sm">Edit</a>
+            <a href="" class="btn btn-danger btn-sm">Cancel</a>
+          </div>
+        </div>
         @endforeach
       </div>
     </div>
