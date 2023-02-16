@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ComicProductController;
+use App\Http\Controllers\Guest\ComicHome;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ComicProductController::class, "index"])->name("admin.index");
+Route::get('/', [ComicHome::class, "index"])->name("guest.index");
 Route::prefix("admin")->name("admin.")->group(function(){
   Route::resource("comic", ComicProductController::class);
 });

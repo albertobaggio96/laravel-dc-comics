@@ -1,34 +1,24 @@
 @extends("layouts.app")
-
 @section("main")
   @include("partials.jumbo")
   <section id="serie-cards">
     <div class="container">
-      <div class="row pt-5 align-items-stretch">
+      <div class="row pt-5 pb-3 align-items-stretch">
         @foreach ($comics as $comic)
-        <div class="col-2 text-white pb-5 mb-4 position-relative">
+        <a href="{{ route('admin.comic.show', $comic->id) }}" class="col-2 text-white pb-2 mb-4 text-decoration-none ">
           <img src="{{$comic->thumb}}" alt=" {{$comic->title}}" class="img-fluid">
           <div>
             {{$comic->series}}
           </div>
-          <div class="position-absolute bottom-0">
-            <a href="{{ route('admin.comic.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
-            <a href="{{ route('admin.comic.edit', $comic->id)}}" class="btn btn-warning btn-sm">Edit</a>
-            <form class="d-inline delete-element" action="{{route('admin.comic.destroy', $comic->id)}}" method="POST" data-element-name="{{$comic->title}}">
-              @csrf 
-              @method("DELETE")
-              <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
-            </form>
-          </div>
-        </div>
+        </a>
         @endforeach
       </div>
     </div>
-    <div class="text-center">
-      <a href="{{route('admin.comic.create')}}" class="btn btn-primary my-4">ADD</a> 
-    </div>
-    </div>
   </section>
+@endsection
+
+@section("footer")
+  @include("partials.footer")
 @endsection
 
 @section("js")

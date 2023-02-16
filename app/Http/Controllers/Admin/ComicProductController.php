@@ -17,7 +17,7 @@ class ComicProductController extends Controller
     public function index()
     {
         $comics= Comic::all();
-        return view("home",compact("comics"));
+        return view("admin.adminManagement",compact("comics"));
     }
 
     /**
@@ -28,7 +28,7 @@ class ComicProductController extends Controller
     public function create()
     {
 
-        return view("create", ["comic"=>new Comic()]);
+        return view("admin.create", ["comic"=>new Comic()]);
     }
 
     /**
@@ -67,7 +67,7 @@ class ComicProductController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view("edit", compact("comic"));
+        return view("admin.edit", compact("comic"));
     }
 
     /**
