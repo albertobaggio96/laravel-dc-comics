@@ -27,7 +27,8 @@ class ComicProductController extends Controller
      */
     public function create()
     {
-        return view("create");
+
+        return view("create", ["comic"=>new Comic()]);
     }
 
     /**
@@ -44,7 +45,7 @@ class ComicProductController extends Controller
         $newComic->fill($data);
         $newComic->save();
 
-        return redirect()->route('admin.show', $newComic->id);
+        return redirect()->route('admin.comic.show', $newComic->id);
     }
 
     /**
@@ -81,7 +82,7 @@ class ComicProductController extends Controller
         $data= $request->all();
         $comic->update($data);
 
-        return redirect()->route("admin.show", $comic->id);
+        return redirect()->route("admin.comic.show", $comic->id);
     }
 
     /**
@@ -94,6 +95,6 @@ class ComicProductController extends Controller
     {
         $comic->delete();
 
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.comic.index');
     }
 }

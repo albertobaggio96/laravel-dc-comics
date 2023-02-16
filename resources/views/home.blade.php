@@ -12,9 +12,9 @@
             {{$comic->series}}
           </div>
           <div class="position-absolute bottom-0">
-            <a href="{{ route('admin.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
-            <a href="{{ route('admin.edit', $comic->id)}}" class="btn btn-warning btn-sm">Edit</a>
-            <form action="{{route('admin.destroy', $comic->id)}}" method="POST">
+            <a href="{{ route('admin.comic.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
+            <a href="{{ route('admin.comic.edit', $comic->id)}}" class="btn btn-warning btn-sm">Edit</a>
+            <form class="d-inline" action="{{route('admin.comic.destroy', $comic->id)}}" method="POST">
               @csrf 
               @method("DELETE")
               <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="text-center">
-      <a href="{{route('admin.create')}}" class="btn btn-primary my-4">ADD</a> 
+      <a href="{{route('admin.comic.create')}}" class="btn btn-primary my-4">ADD</a> 
     </div>
     </div>
   </section>
