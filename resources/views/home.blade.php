@@ -14,7 +14,7 @@
           <div class="position-absolute bottom-0">
             <a href="{{ route('admin.comic.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
             <a href="{{ route('admin.comic.edit', $comic->id)}}" class="btn btn-warning btn-sm">Edit</a>
-            <form class="d-inline" action="{{route('admin.comic.destroy', $comic->id)}}" method="POST">
+            <form class="d-inline delete-element" action="{{route('admin.comic.destroy', $comic->id)}}" method="POST" data-element-name="{{$comic->title}}">
               @csrf 
               @method("DELETE")
               <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
@@ -29,4 +29,8 @@
     </div>
     </div>
   </section>
+@endsection
+
+@section("js")
+  @vite('resources/js/deleteConfirm.js')
 @endsection
