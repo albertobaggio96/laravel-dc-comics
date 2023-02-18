@@ -158,7 +158,6 @@ class ComicProductController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-
-        return redirect()->route('admin.comic.index');
+        return redirect()->route('admin.comic.index')->with('message', "$comic->title è stato cancellato")->with('alert-type', "danger");
     }
 }
